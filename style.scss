@@ -78,6 +78,15 @@ textarea:not([rows]) {
     scroll-margin-block: 5ex;
 }
 
+// MEDIA QUERIES
+// MIXINS
+
+@mixin dekstop() {
+    @media screen and (width >= 70em) {
+        @content;
+    }
+}
+
 // FONTS
 $Montserrat: 'Montserrat', sans-serif;
 $Fraunces: 'Fraunces', serif;
@@ -104,7 +113,74 @@ body {
     align-items: center;
 }
 
-main {
+.card {
     background-color: $white;
     border-radius: 1rem;
+    max-width: 20rem;
+    &__img {
+        border-radius: 1rem 1rem 0 0;
+    }
+    &__content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    &__category {
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        color: $dark-grayish-blue;
+        letter-spacing: 0.2rem;
+        font-weight: normal;
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    &__title {
+        font-family: $Fraunces;
+        font-size: 1.875rem;
+        color: $very-dark-blue;
+    }
+    &__description {
+        color: $dark-grayish-blue;
+        font-size: 0.875rem;
+    }
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    &__price-container {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    &__price {
+        color: $dark-cyan;
+        font-size: 1.875rem;
+        font-family: $Fraunces;
+    }
+    &__discount {
+        text-decoration: line-through;
+        color: $dark-grayish-blue;
+        font-size: 0.875rem;
+    }
+    &__button {
+        border: none;
+        background-color: $dark-cyan;
+        color: $white;
+        border-radius: 0.5rem;
+        width: 100%;
+        padding: 0.75rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        &:hover {
+            background-color: darken($dark-cyan, 20%);
+        }
+    }
 }
