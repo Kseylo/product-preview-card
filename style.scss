@@ -81,7 +81,7 @@ textarea:not([rows]) {
 // MEDIA QUERIES
 // MIXINS
 
-@mixin dekstop() {
+@mixin desktop() {
     @media screen and (width >= 70em) {
         @content;
     }
@@ -117,8 +117,20 @@ body {
     background-color: $white;
     border-radius: 1rem;
     max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+
+    @include desktop() {
+        flex-direction: row;
+        max-width: 32rem;
+    }
+
     &__img {
         border-radius: 1rem 1rem 0 0;
+
+        @include desktop() {
+            border-radius: 1rem 0 0 1rem;
+        }
     }
     &__content {
         padding: 1.5rem;
